@@ -10,8 +10,7 @@ RUN apt-get update \
  && rm -r /var/lib/apt/lists/*
 
 # Configure Nginx and apply fix for very long server names
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf \
- && sed -i 's/^http {/&\n    server_names_hash_bucket_size 128;/g' /etc/nginx/nginx.conf
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 # Install go
 ENV GO_VERSION 1.7.4
@@ -33,8 +32,6 @@ RUN wget https://github.com/jwilder/docker-gen/releases/download/${DOCKER_GEN_VE
  && rm docker-gen-linux-armhf-${DOCKER_GEN_VERSION}.tar.gz
 
 COPY ./app /app/
-COPY nginx.conf /etc/nginx/nginx.conf
-RUN mkdir /etc/nginx/conf.d
 WORKDIR /app/
 
 ENV DOCKER_HOST unix:///tmp/docker.sock
