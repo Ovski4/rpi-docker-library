@@ -1,12 +1,8 @@
 FROM resin/rpi-raspbian:jessie-20161207
 
-# To install php7.0we need the testing branch of raspbian
+# To install php7.0 we need the testing branch of raspbian
 
 RUN echo "deb http://mirrordirector.raspbian.org/raspbian/ stretch main contrib non-free rpi" > /etc/apt/sources.list.d/raspbian_nonfree.list
-#RUN echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main" > /etc/apt/sources.list.d/php7.list
-#RUN echo "deb-src http://ppa.launchpad.net/ondrej/php/ubuntu xenial main " >> /etc/apt/sources.list.d/php7.list
-
-#RUN gpg --keyserver keyserver.ubuntu.com --recv E5267A6C && gpg --export --armor E5267A6C | apt-key add -
 
 RUN apt-get update
 RUN apt-get install -y php7.0
