@@ -24,6 +24,8 @@ RUN apt-get install -y php7.0-xml
 RUN apt-get install -y php7.0-zip
 RUN apt-get install -y php7.0-mbstring
 RUN apt-get install -y php7.0-opcache
+RUN apt-get install -y php7.0-mysqli
+RUN apt-get install -y php7.0-gd
 
 RUN sed -Ei 's/^listen.*/listen = 9000/' /etc/php/7.0/fpm/pool.d/www.conf
 
